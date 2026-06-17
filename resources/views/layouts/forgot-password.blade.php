@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="adminHMD authentication page">
-    <title>Forgot Password | adminHMD</title>
+    <meta name="description" content="BootGoes authentication page">
+    <title>Forgot Password | BootGoes</title>
 
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
@@ -20,10 +20,10 @@
     <main class="auth-page">
         <section class="auth-card">
             <a class="auth-brand" href="index.html"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
-                        aria-hidden="true"></i></span><span><strong>adminHMD</strong><small>Get a reset link for your
+                        aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Get a reset link for your
                         account.</small></span></a>
             <div class="auth-visual"><img src="{{ asset('/assets/images/png/dasher-ui-bootstrap-5.jpg') }}"
-                    alt="adminHMD dashboard interface"></div>
+                    alt="BootGoes dashboard interface"></div>
             <form class="needs-validation" novalidate>
                 <div class="mb-4">
                     <p class="eyebrow mb-1">Secure Access</p>

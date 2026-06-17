@@ -1,8 +1,8 @@
 "use strict";
 
 (function () {
-  var sidebarStorageKey = "adminHMD.sidebarMini";
-  var themeStorageKey = "adminHMD.colorTheme";
+  var sidebarStorageKey = "BootGoes.sidebarMini";
+  var themeStorageKey = "BootGoes.colorTheme";
   var desktopMedia = "(min-width: 992px)";
 
   function onReady(callback) {
@@ -145,9 +145,9 @@
     initTableSearch();
     initThemeToggle();
 
-    // Initialize user profile values in UI. Provide a window.adminHMDUser object to override defaults.
+    // Initialize user profile values in UI. Provide a window.BootGoesUser object to override defaults.
     function initUserProfile() {
-      var user = window.adminHMDUser || { name: "Admin Hasan", workspace: "Active Workspace", avatar: "../assets/images/avatar/avatar.jpg" };
+      var user = window.BootGoesUser || { name: "Admin Hasan", workspace: "Active Workspace", avatar: "../assets/images/avatar/avatar.jpg" };
 
       var sidebarNameEl = document.querySelector(".sidebar-user strong");
       var sidebarWorkspaceEl = document.querySelector(".sidebar-user small");

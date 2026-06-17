@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="adminHMD authentication page">
-    <title>Login | adminHMD</title>
+    <meta name="description" content="BootGoes authentication page">
+    <title>Login | BootGoes</title>
 
 
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -21,11 +21,12 @@
     <main class="auth-page">
         <section class="auth-card">
             <a class="auth-brand" href="index.html"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
-                        aria-hidden="true"></i></span><span><strong>adminHMD</strong><small>Sign in to your admin
+                        aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Sign in to your admin
                         workspace.</small></span></a>
             <div class="auth-visual"><img src="{{ asset('/assets/images/png/dasher-ui-bootstrap-5.jpg') }}"
-                    alt="adminHMD dashboard interface"></div>
-            <form class="needs-validation" novalidate>
+                    alt="BootGoes dashboard interface"></div>
+            <form action="{{route('authenticate')}}" method="POST" class="needs-validation" novalidate>
+                @csrf
                 <div class="mb-4">
                     <p class="eyebrow mb-1">Secure Access</p>
                     <h1 class="h3 mb-1">Login</h1>

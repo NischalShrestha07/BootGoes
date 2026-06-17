@@ -22,7 +22,7 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard');
         }
         return redirect()->route('login');
     }
@@ -49,8 +49,24 @@ class UserController extends Controller
 
         return redirect()->route('login');
     }
+
     public function forgotPassword()
     {
         return view('layouts.forgot-password');
+    }
+
+    public function userIndex()
+    {
+        return view('users.users');
+    }
+
+    public function create()
+    {
+        return view('users.add-user');
+    }
+
+    public function userDetail()
+    {
+        return view('users.user-details');
     }
 }
