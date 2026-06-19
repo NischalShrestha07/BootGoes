@@ -10,4 +10,8 @@ class ProfileController extends Controller
     {
         return view('profile');
     }
+    public function settings()
+    {
+        return view('settings');
+    }
 }

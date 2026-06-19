@@ -19,11 +19,9 @@
     </button>
     <main class="auth-page">
         <section class="auth-card">
-            <a class="auth-brand" href="index.html"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
+            <a class="auth-brand" href="{{route('login')}}"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
                         aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Create your BootGoes
                         account.</small></span></a>
-            <div class="auth-visual"><img src="{{ asset('/assets/images/png/dasher-ui-bootstrap-5.jpg') }}"
-                    alt="BootGoes dashboard interface"></div>
             <form action="{{route('register.user')}}" method="POST" class="needs-validation" novalidate>
                 @csrf
                 <div class="mb-4">
@@ -32,28 +30,29 @@
                     <p class="text-muted mb-0">Create your BootGoes account.</p>
                 </div>
                 <div class="mb-3"><label class="form-label" for="registerName">Full name</label><input
-                        value="{{old('name')}}" name="name" class="form-control" id="registerName" type="text" required>
+                        value="{{old('name')}}" name="name" class="form-control" id="registerName"
+                        placeholder="Enter Full Name" type="text" required>
                     @error('name')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="mb-3"><label class="form-label" for="registerEmail">Email address</label><input
-                        value="{{old('email')}}" name="email" class="form-control" id="registerEmail" type="email"
-                        required>
+                        value="{{old('email')}}" name="email" class="form-control" placeholder="Enter Email Address"
+                        id="registerEmail" type="email" required>
                     @error('email')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="mb-3"><label class="form-label" for="registerPassword">Password</label><input
-                        value="{{old('password')}}" name="password" class="form-control" id="registerPassword"
-                        type="password" minlength="6" required>
+                        value="{{old('password')}}" name="password" placeholder="Enter Password" class="form-control"
+                        id="registerPassword" type="password" minlength="6" required>
                     @error('password')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="mb-3"><label class="form-label" for="registerPassword">Re-type Password</label><input
-                        value="{{old('password')}}" name="password_confirmation" class="form-control"
-                        id="registerPassword" type="password" minlength="6" required>
+                        value="{{old('password')}}" name="password_confirmation" placeholder="Re-Enter Password"
+                        class="form-control" id="registerPassword" type="password" minlength="6" required>
                     @error('password_confirmation')
                     <span class="text-danger">{{$message}}</span>
                     @enderror

@@ -57,7 +57,8 @@ class UserController extends Controller
 
     public function userIndex()
     {
-        return view('users.users');
+        $users = User::paginate(1);
+        return view('users.users', compact('users'));
     }
 
     public function create()
@@ -65,8 +66,15 @@ class UserController extends Controller
         return view('users.add-user');
     }
 
-    public function userDetail()
+    public function userDetail($id)
     {
-        return view('users.user-details');
+        $user = User::find($id);
+        return view('users.user-details', compact('user'));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

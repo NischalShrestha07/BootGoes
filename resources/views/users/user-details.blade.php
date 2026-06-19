@@ -10,9 +10,9 @@
                 <p class="text-muted mb-0">Inspect account status, profile data, permissions, and recent activity.</p>
             </div>
         </div>
-        <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="users.html"><i
+        <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="{{route('users.index')}}"><i
                     class="bi bi-arrow-left" aria-hidden="true"></i> Back to Users</a><a class="btn btn-primary btn-sm"
-                href="add-user.html"><i class="bi bi-person-plus" aria-hidden="true"></i> Add User</a></div>
+                href="{{route('users.create')}}"><i class="bi bi-person-plus" aria-hidden="true"></i> Add User</a></div>
     </div>
 
     <section class="row g-3">
@@ -23,15 +23,14 @@
                 <div class="profile-hero">
                     <img class="avatar-img avatar-xl profile-photo" src="../assets/images/avatar/avatar-1.jpg"
                         alt="Sarah Ahmed">
-                    <h2 class="h5 mb-1">Sarah Ahmed</h2>
-                    <p class="text-muted mb-3">Senior Administrator</p>
+                    <h2 class="h5 mb-1">{{$user->name}}</h2>
                     <span class="badge text-bg-success">Active Account</span>
                 </div>
                 <div class="info-list mt-4 text-start">
-                    <div><span>Email</span><strong>sarah@example.com</strong></div>
-                    <div><span>Phone</span><strong>+1 555 0184</strong></div>
-                    <div><span>Team</span><strong>Operations</strong></div>
-                    <div><span>Location</span><strong>New York, USA</strong></div>
+                    <div><span>Email</span><strong>{{$user->email}}</strong></div>
+                    <div><span>Phone</span><strong>{{$user->phone}}</strong></div>
+                    <div><span>Team</span><strong>{{$user->team}}</strong></div>
+                    <div><span>Location</span><strong>{{$user->address}}</strong></div>
                 </div>
             </div>
         </div>
@@ -42,11 +41,12 @@
                         <h2 class="h5 mb-1 section-title"><i class="bi bi-person-lines-fill"
                                 aria-hidden="true"></i><span>Account Overview</span></h2>
                         <p class="text-muted mb-0">Permissions, plan, and current access details.</p>
-                    </div><button class="btn btn-primary btn-sm" type="button">Edit User</button>
+                    </div><button href="" class="btn btn-primary btn-sm" type="button">Edit
+                        User</button>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-4">
-                        <div class="mini-card"><span>Role</span><strong>Admin</strong></div>
+                        <div class="mini-card"><span>Role</span><strong>{{$user->role}}</strong></div>
                     </div>
                     <div class="col-md-4">
                         <div class="mini-card"><span>Last Login</span><strong>Today</strong></div>

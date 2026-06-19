@@ -54,7 +54,7 @@
                                     <span class="notification-title">Revenue target reached</span>
                                     <span class="notification-time">32 minutes ago</span>
                                 </a>
-                                <a class="dropdown-item" href="settings.html">
+                                <a class="dropdown-item" href="{{route('settings')}}">
                                     <span class="notification-title">Security review completed</span>
                                     <span class="notification-time">1 hour ago</span>
                                 </a>
@@ -69,12 +69,18 @@
                                 <span class="profile-name d-none d-sm-inline">Admin Hasan</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                                <li><a class="dropdown-item" href="settings.html">Account settings</a></li>
+                                <li><a class="dropdown-item" href="{{route('profile.index')}}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('settings')}}">Account settings</a></li>
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <hr class=" dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="login.html">Sign out</a></li>
+                                <li>
+                                    <form action=" {{route('user.logout')}}" method=" POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-link" style="text-decoration: none;">Sign
+                                            Out</button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -90,10 +96,8 @@
             <footer class="admin-footer">
                 <div class="container-fluid px-3 px-lg-4">
                     <span>Copyright 2026 BootGoes. <br> Developed by <a target="_blank" class="fw-bold text-success"
-                            href="https://github.com/HasanMahmudDev">Md. Hasan Mahmud</a> • Distributed by <a
-                            target="_blank" class="fw-bold text-success" href="https://themewagon.com">ThemeWagon</a>
+                            href="https://github.com/NischalShrestha07">Nischal Shrestha</a>
                     </span>
-                    <span>Professional dashboard template.</span>
                 </div>
             </footer>
         </div>

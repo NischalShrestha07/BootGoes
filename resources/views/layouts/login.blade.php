@@ -20,11 +20,9 @@
     </button>
     <main class="auth-page">
         <section class="auth-card">
-            <a class="auth-brand" href="index.html"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
+            <a class="auth-brand" href="{{route('login')}}"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
                         aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Sign in to your admin
                         workspace.</small></span></a>
-            <div class="auth-visual"><img src="{{ asset('/assets/images/png/dasher-ui-bootstrap-5.jpg') }}"
-                    alt="BootGoes dashboard interface"></div>
             <form action="{{route('authenticate')}}" method="POST" class="needs-validation" novalidate>
                 @csrf
                 <div class="mb-4">
@@ -33,7 +31,8 @@
                     <p class="text-muted mb-0">Sign in to your admin workspace.</p>
                 </div>
                 <div class="mb-3"><label class="form-label" for="loginEmail">Email address</label><input
-                        class="form-control" name="email" value="{{old('name')}}" id="loginEmail" type="email" required>
+                        class="form-control" name="email" placeholder="Enter Email Address" value="{{old('name')}}"
+                        id="loginEmail" type="email" required>
                     @error('name')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -42,7 +41,8 @@
                     <div class="d-flex justify-content-between"><label class="form-label"
                             for="loginPassword">Password</label><a class="small fw-semibold"
                             href="{{route('forgot.password')}}">Forgot?</a></div><input class="form-control"
-                        id="loginPassword" name="password" type="password" minlength="6" required>
+                        id="loginPassword" name="password" placeholder="Enter Password" type="password" minlength="6"
+                        required>
                     @error('password')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
