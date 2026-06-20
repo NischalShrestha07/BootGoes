@@ -686,8 +686,4 @@
     </div><!-- END CONTAINER  -->
 </section>
 <!-- END BLOG -->
-
-@include('frontend.layouts.footer')
-
-
 @endsection

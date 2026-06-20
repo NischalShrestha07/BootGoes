@@ -46,9 +46,9 @@
 <body data-spy="scroll" data-offset="80">
 
     <!-- START PRELOADER -->
-    <div class="preloaders">
+    {{-- <div class="preloaders">
         <span class="loader"></span>
-    </div>
+    </div> --}}
     <!-- END PRELOADER -->
 
     @include('frontend.layouts.nav')
