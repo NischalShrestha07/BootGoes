@@ -27,4 +27,38 @@ class HomeController extends Controller
     {
         return view('frontend.course');
     }
+    public function faq()
+    {
+        return view('frontend.faq');
+    }
+    public function course_details()
+    {
+        return view('frontend.course_details');
+    }
+    public function about()
+    {
+        return view('frontend.about');
+    }
+    // public function blog_single($id)
+    public function blog_single()
+    {
+        return view('frontend.blog_single');
+    }
+    // public function ins_details($id)
+    public function ins_details()
+    {
+        return view('frontend.ins_details');
+    }
+    public function pricing()
+    {
+        return view('frontend.pricing');
+    }
+    public function thankYou()
+    {
+        return view('frontend.thank-you');
+    }
+    public function error404()
+    {
+        return view('frontend.404');
+    }
 }

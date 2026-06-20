@@ -55,7 +55,7 @@
 
     @yield('content')
 
-
+    @include('frontend.layouts.footer')
     <!-- Latest jQuery -->
     <script src="{{asset('frontend_assets/js/jquery-1.12.4.min.js')}}"></script>
     <!-- Latest compiled and minified Bootstrap -->

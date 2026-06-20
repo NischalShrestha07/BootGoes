@@ -19,7 +19,8 @@
     </button>
     <main class="auth-page">
         <section class="auth-card">
-            <a class="auth-brand" href="{{route('login')}}"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
+            <a class="auth-brand" href="{{route('frontend.login')}}"><span class="brand-icon"><i
+                        class="bi bi-grid-1x2-fill"
                         aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Create your BootGoes
                         account.</small></span></a>
             <form action="{{route('register.user')}}" method="POST" class="needs-validation" novalidate>
@@ -62,7 +63,7 @@
                     Create Account</button>
             </form>
 
-            <div class="auth-footer">Already have an account? <a href="{{route('login')}}">Sign in</a></div>
+            <div class="auth-footer">Already have an account? <a href="{{route('frontend.login')}}">Sign in</a></div>
         </section>
     </main>
 

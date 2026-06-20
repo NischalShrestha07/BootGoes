@@ -686,4 +686,5 @@
     </div><!-- END CONTAINER  -->
 </section>
 <!-- END BLOG -->
+
 @endsection

@@ -20,7 +20,8 @@
     </button>
     <main class="auth-page">
         <section class="auth-card">
-            <a class="auth-brand" href="{{route('login')}}"><span class="brand-icon"><i class="bi bi-grid-1x2-fill"
+            <a class="auth-brand" href="{{route('frontend.login')}}"><span class="brand-icon"><i
+                        class="bi bi-grid-1x2-fill"
                         aria-hidden="true"></i></span><span><strong>BootGoes</strong><small>Sign in to your admin
                         workspace.</small></span></a>
             <form action="{{route('authenticate')}}" method="POST" class="needs-validation" novalidate>
@@ -53,7 +54,7 @@
                         aria-hidden="true"></i> Sign In</button>
             </form>
 
-            <div class="auth-footer">New here? <a href="{{route('register')}}">Create an account</a></div>
+            <div class="auth-footer">New here? <a href="{{route('frontend.register')}}">Create an account</a></div>
         </section>
     </main>
 
