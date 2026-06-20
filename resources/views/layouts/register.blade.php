@@ -44,6 +44,16 @@
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
+                <div class="mb-3"><label class="form-label" for="registerRole">I want to join as</label>
+                    <select class="form-select" name="role" id="registerRole" required>
+                        <option value="student" {{ old('role') == 'student' ? 'selected' : '' }}>Student</option>
+                        <option value="instructor" {{ old('role') == 'instructor' ? 'selected' : '' }}>Instructor</option>
+                        <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                    </select>
+                    @error('role')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
                 <div class="mb-3"><label class="form-label" for="registerPassword">Password</label><input
                         value="{{old('password')}}" name="password" placeholder="Enter Password" class="form-control"
                         id="registerPassword" type="password" minlength="6" required>
@@ -51,9 +61,9 @@
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
-                <div class="mb-3"><label class="form-label" for="registerPassword">Re-type Password</label><input
-                        value="{{old('password')}}" name="password_confirmation" placeholder="Re-Enter Password"
-                        class="form-control" id="registerPassword" type="password" minlength="6" required>
+                <div class="mb-3"><label class="form-label" for="registerPasswordConfirm">Re-type Password</label><input
+                        value="{{old('password_confirmation')}}" name="password_confirmation" placeholder="Re-Enter Password"
+                        class="form-control" id="registerPasswordConfirm" type="password" minlength="6" required>
                     @error('password_confirmation')
                     <span class="text-danger">{{$message}}</span>
                     @enderror

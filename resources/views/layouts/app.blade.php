@@ -62,12 +62,12 @@
                         </div>
 
                         <div class="dropdown">
-                            <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar.jpg"
-                                    alt="Admin Hasan">
-                                <span class="profile-name d-none d-sm-inline">Admin Hasan</span>
-                            </button>
+                        <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img class="avatar-img avatar-sm" src="{{asset('assets/images/avatar/avatar.jpg')}}"
+                                alt="{{ Auth::user()->name }}">
+                            <span class="profile-name d-none d-sm-inline">{{ Auth::user()->name }}</span>
+                        </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{route('profile.index')}}">Profile</a></li>
                                 <li><a class="dropdown-item" href="{{route('settings')}}">Account settings</a></li>
@@ -75,11 +75,7 @@
                                     <hr class=" dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action=" {{route('user.logout')}}" method=" POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-link" style="text-decoration: none;">Sign
-                                            Out</button>
-                                    </form>
+                                    <a class="dropdown-item" href="{{route('user.logout')}}">Sign Out</a>
                                 </li>
                             </ul>
                         </div>

@@ -22,9 +22,18 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('dashboard');
+            $role = Auth::user()->role;
+
+            if ($role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($role === 'instructor') {
+                return redirect()->route('instructor.dashboard');
+            } else {
+                return redirect()->route('student.dashboard');
+            }
         }
-        return redirect()->route('login');
+
+        return back()->withErrors(['email' => 'Invalid credentials.'])->onlyInput('email');
     }
 
     public function register()
@@ -36,18 +45,21 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'string|required|min:5',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|max:10|min:10',
             'password' => 'required|string|min:5|confirmed',
+            'role' => 'required|in:student,instructor,admin',
         ]);
-        // return $request;
 
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('login');
+        return redirect()->route('frontend.login')->with('success', 'Account created successfully. Please login.');
     }
 
     public function forgotPassword()
@@ -75,6 +87,6 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('frontend.login');
     }
 }

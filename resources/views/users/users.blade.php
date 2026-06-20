@@ -10,9 +10,8 @@
                 <p class="text-muted mb-0">Review accounts, roles, account status, and team ownership.</p>
             </div>
         </div>
-        <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i
-                    class="bi bi-download" aria-hidden="true"></i> Export</a><a class="btn btn-primary btn-sm"
-                href="add-user.html"><i class="bi bi-person-plus" aria-hidden="true"></i> Add User</a></div>
+        <div class="heading-actions"><a class="btn btn-primary btn-sm"
+                href="{{route('users.create')}}"><i class="bi bi-person-plus" aria-hidden="true"></i> Add User</a></div>
     </div>
 
     <section class="row g-3 mt-1" aria-label="User summary">
@@ -81,9 +80,7 @@
                 <p class="text-muted mb-0">Search, review, and manage team member accounts.</p>
             </div>
             <div class="d-flex flex-wrap gap-2">
-                <input class="form-control form-control-sm table-search" type="search" placeholder="Search users"
-                    data-table-search="usersTable" aria-label="Search users">
-                <a class="btn btn-primary btn-sm" href="add-user.html"><i class="bi bi-person-plus"
+                <a class="btn btn-primary btn-sm" href="{{route('users.create')}}"><i class="bi bi-person-plus"
                         aria-hidden="true"></i> Add User</a>
             </div>
         </div>
@@ -104,8 +101,8 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center gap-2">
-                                <img class="avatar-img avatar-sm" src="../assets/images/avatar/avatar-5.jpg"
-                                    alt="Jon Oliver">
+                                <img class="avatar-img avatar-sm" src="{{asset('assets/images/avatar/avatar.jpg')}}"
+                                    alt="{{$item->name}}">
                                 <div>
                                     <p class="fw-semibold mb-0">{{$item->name}}</p>
                                 </div>

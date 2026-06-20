@@ -1,6 +1,6 @@
 <aside class="admin-sidebar" id="adminSidebar" aria-label="Main navigation">
     <div class="sidebar-header">
-        <a class="brand-mark" href="index.html" aria-label="BootGoes dashboard">
+        <a class="brand-mark" href="{{route('frontend.index')}}" aria-label="BootGoes dashboard">
             <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
             <span class="brand-copy">
                 <span class="brand-title">BootGoes</span>
@@ -10,10 +10,19 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a class="nav-link active" href="{{route('dashboard')}}" aria-current="page">
+        @php
+            $dashboardRoute = match(Auth::user()->role) {
+                'admin' => 'admin.dashboard',
+                'instructor' => 'instructor.dashboard',
+                default => 'student.dashboard',
+            };
+        @endphp
+        <a class="nav-link active" href="{{route($dashboardRoute)}}" aria-current="page">
             <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
             <span class="nav-text">Dashboard</span>
         </a>
+
+        @if(Auth::user()->role === 'admin')
         <a class="nav-link" href="{{route('users.index')}}">
             <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
             <span class="nav-text">Users</span>
@@ -22,6 +31,7 @@
             <span class="nav-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
             <span class="nav-text">Add User</span>
         </a>
+        @endif
         <a class="nav-link" href="{{route('profile.index')}}">
             <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
             <span class="nav-text">Profile</span>
@@ -61,10 +71,10 @@
     </nav>
 
     <div class="sidebar-user">
-        <img class="avatar-img avatar-md sidebar-user-avatar" src="../assets/images/avatar/avatar.jpg"
-            alt="Admin Hasan">
-        <strong>Admin Hasan</strong>
-        <small>Active Workspace</small>
+        <img class="avatar-img avatar-md sidebar-user-avatar" src="{{asset('assets/images/avatar/avatar.jpg')}}"
+            alt="{{Auth::user()->name}}">
+        <strong>{{Auth::user()->name}}</strong>
+        <small>{{ ucfirst(Auth::user()->role) }} Workspace</small>
     </div>
 
 

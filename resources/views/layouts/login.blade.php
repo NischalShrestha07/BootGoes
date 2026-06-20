@@ -30,11 +30,14 @@
                     <p class="eyebrow mb-1">Secure Access</p>
                     <h1 class="h3 mb-1">Login</h1>
                     <p class="text-muted mb-0">Sign in to your admin workspace.</p>
+                    @if(session('success'))
+                    <div class="alert alert-success mt-2">{{ session('success') }}</div>
+                    @endif
                 </div>
                 <div class="mb-3"><label class="form-label" for="loginEmail">Email address</label><input
-                        class="form-control" name="email" placeholder="Enter Email Address" value="{{old('name')}}"
+                        class="form-control" name="email" placeholder="Enter Email Address" value="{{old('email')}}"
                         id="loginEmail" type="email" required>
-                    @error('name')
+                    @error('email')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>

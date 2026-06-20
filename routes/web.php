@@ -24,14 +24,9 @@ Route::name('frontend.')->group(function () {
     Route::get('/thank-you', [Frontend\HomeController::class, 'thankYou'])->name('thank.you');
     Route::get('/error-404', [Frontend\HomeController::class, 'error404'])->name('error.404');
 
-
     Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::get('/register', [UserController::class, 'register'])->name('register');
 });
-
-
-
-
 
 Route::post('/login', [UserController::class, 'authenticate'])->name('authenticate');
 Route::post('user/register/', [UserController::class, 'addUser'])->name('register.user');
@@ -40,12 +35,20 @@ Route::get('/forgot-password', [UserController::class, 'forgotPassword'])->name(
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/users', [UserController::class, 'userIndex'])->name('users.index');
-    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-    Route::get('/user-details/{id}', [UserController::class, 'userDetail'])->name('user.detail');
 
+    // Role-specific dashboards (each protected by their own role middleware)
+    Route::middleware('role:admin')->get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::middleware('role:instructor')->get('/instructor/dashboard', [DashboardController::class, 'instructorDashboard'])->name('instructor.dashboard');
+    Route::middleware('role:student')->get('/student/dashboard', [DashboardController::class, 'studentDashboard'])->name('student.dashboard');
 
+    // Admin-only routes (protected with CheckRole middleware)
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/users', [UserController::class, 'userIndex'])->name('users.index');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::get('/user-details/{id}', [UserController::class, 'userDetail'])->name('user.detail');
+    });
+
+    // Profile & Settings (accessible by any authenticated user)
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
 });
